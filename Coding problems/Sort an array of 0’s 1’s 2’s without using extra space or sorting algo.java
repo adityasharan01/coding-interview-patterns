@@ -38,13 +38,13 @@ class Main
         }
     }
  
-    // Utility function to swap elements `A[i]` and `A[j]` in the array
-    private static void swap(int[] A, int i, int j)
-    {
-        int temp = A[i];
-        A[i] = A[j];
-        A[j] = temp;
-    }
+//     // Utility function to swap elements `A[i]` and `A[j]` in the array
+//     private static void swap(int[] A, int i, int j)
+//     {
+//         int temp = A[i];
+//         A[i] = A[j];
+//         A[j] = temp;
+//     }
  
     public static void main (String[] args)
     {
