@@ -19,6 +19,8 @@ Explanation: Six palindromic strings: "a", "a", "a", "aa", "aa", "aaa".
 Note:
 
 The input string length won't exceed 1000.
+ Here is video explaining the code :
+https://www.youtube.com/watch?v=e3XuZFqH9ZA
 Approach1:
   Brute Force Solution:-
  class Solution {
