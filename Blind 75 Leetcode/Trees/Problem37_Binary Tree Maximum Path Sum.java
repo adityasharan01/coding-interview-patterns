@@ -48,3 +48,36 @@ public class Solution {
         return Math.max(left, right) + node.val;
     }
 }
+/////////////////////////////////////////////
+This is quite a tricky problem where we have to consider the various edge-cases.
+We need to remember that we are looking for a SINGLE PATH hence we to previous call we need to pass the maximum of either our left or right sub-tree but not both because then we would end up having multiple paths.
+
+However, for calculating the sum for current node we consider both the left and right traversals along with the current node value.
+
+You have to notice that we are using a global variable to keep track of the maximum sum of path so far because we can't return to our previous call.
+This is the important part of this solution.
+This lets us keep track of the linkage of sub-paths.
+
+This is a bit hard to understand but try reviewing it and you'll understand it.
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxPathSum(self, root: TreeNode) :
+        self.ans = -float('inf')
+        
+        def path(root):
+            if not root:
+                return 0
+            left = max(path(root.left),0)
+            right = max(path(root.right),0)
+            val = root.val
+            self.ans = max(self.ans,val+left+right)
+            return val+max(left,right)
+        
+        path(root)
+        return self.ans
