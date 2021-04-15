@@ -66,3 +66,37 @@ public class Solution {
         return root;
     }
 }
+
+
+PYTHON aPPROACH :
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def buildTree(self, preorder, inorder):
+        """
+        :type preorder: List[int]
+        :type inorder: List[int]
+        :rtype: TreeNode
+        """
+        hashMap = {char : idx for idx, char in enumerate(inorder)}
+        indx = [0]
+        
+        def generate(start, end):
+            if start > end:
+                return None
+            
+            val = preorder[indx[0]]
+            mid = hashMap[val]
+            indx[0] += 1
+            
+            root = TreeNode(val)
+            root.left = generate(start, mid-1)
+            root.right = generate(mid + 1, end)
+            
+            return root
+        
+        return generate(0, len(preorder)-1)
