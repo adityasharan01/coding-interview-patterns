@@ -29,3 +29,36 @@ The number of nodes in the tree is in the range [2, 105].
 All Node.val are unique.
 p != q
 p and q will exist in the BST.
+Approach :
+This is very straightforward by using recursion, because the lowest Common Ancestor must be the one element that’s in between the values of the two given nodes.
+
+This can also be done in iterative way by using a variable to keep track of current node to deal with
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        int min = Math.min(p.val, q.val);
+        int max = Math.max(p.val, q.val);
+        return lca(root, min, max);
+    }
+    private TreeNode lca(TreeNode root, int min, int max) {
+        if (root.val >= min && root.val <= max) {
+            return root;
+        }
+        if (root.val > max) {
+            return lca(root.left, min, max);
+        }
+        if (root.val < min) {
+            return lca(root.right, min, max);
+        }
+        return null;
+    }
+}
