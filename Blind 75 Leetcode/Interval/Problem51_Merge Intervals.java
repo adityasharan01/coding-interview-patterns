@@ -24,7 +24,43 @@ intervals[i].length == 2
  
 Approach:-
  The key to solve this problem is defining a Comparator first to sort the arraylist of Intevals.
-Java Solution
+Java Solution:-
+ public class Solution {
+    public List<Interval> merge(List<Interval> intervals) {
+        Collections.sort(intervals, new Comparator<Interval>(){
+            public int compare(Interval i1, Interval i2) {
+                if (i1.start != i2.start) {
+                    return i1.start - i2.start;
+                }
+                else {
+                    return i1.end - i2.end;
+                }
+            }
+        });
+        List<Interval> result = new LinkedList<Interval>();
+        Interval curr = null;
+        for (Interval inter:intervals) {
+            if (curr == null) {
+                curr = inter;
+                continue;
+            }
+            if (inter.start > curr.end) {
+                result.add(curr);
+                curr = inter;
+            }
+            else {
+                curr.end = Math.max(curr.end, inter.end);
+            }
+        }
+        if (curr != null) {
+            result.add(curr);
+        }
+        return result;
+    }
+}
+ 
+ 
+ ///////////////////////////////
 class Solution {
     public int[][] merge(int[][] intervals) {
         Arrays.sort(intervals, (a,b) -> Integer.compare(a[0],b[0]));
