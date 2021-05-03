@@ -39,15 +39,7 @@ class SLinkedList:
                 tempNode.next = newNode
                 newNode.next = nextNode
 
-    # Traverse Singly Linked List
-    def traverseSLL(self):
-        if self.head is None:
-            print("The Singly Linked List does not exist")
-        else:
-            node = self.head
-            while node is not None:
-                print(node.value)
-                node = node.next
+    
     # Search for a node in Singly Linked List
     def searchSLL(self, nodeValue):
         if self.head is None:
@@ -59,6 +51,15 @@ class SLinkedList:
                     return node.value
                 node = node.next
             return "The value does not exist in this list"
+        # Traverse Singly Linked List
+    def traverseSLL(self):
+        if self.head is None:
+            print("The Singly Linked List does not exist")
+        else:
+            node = self.head
+            while node is not None:
+                print(node.value)
+                node = node.next
 
     #  Delete a node from Singly Linked List
     def deleteNode(self, location):
