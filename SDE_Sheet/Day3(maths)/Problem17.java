@@ -35,3 +35,22 @@ Constraints:
 
 1 <= m, n <= 100
 It's guaranteed that the answer will be less than or equal to 2 * 109.
+ 
+ 
+ 
+We only need to store the previous row/column to perform the calculation for the next one. So an 1-d array would suffice. You could also choose to iterate through m or n depending on which direction you choose to go (by row or by column). Note that the first element of the array will always be 1.
+
+public class Solution {
+    public int uniquePaths(int m, int n) {
+        int[] arr = new int[m];
+        for (int i = 0; i < m; i++) {
+            arr[i] = 1;
+        }
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < m; j++) {
+                arr[j] = arr[j] + arr[j-1];
+            }
+        }
+        return arr[m-1];
+    }
+}
