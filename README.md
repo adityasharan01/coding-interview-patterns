@@ -113,49 +113,42 @@ If asked for common strings then
 Else
     - Map/Set for O(1) time & O(n) space
     - Sort input for O(nlogn) time and O(1) space
-//////
-Arrays
+## Arrays
 Corner Cases
 Empty sequence
 Sequence with 1 or 2 elements
 Sequence with repeated elements
-//////////
-Strings
+## Strings
 Corner Cases
 Empty string
 Single-character string
 Strings with only one distinct character
-///////////
-Binary
+## Binary
 Corner Cases
 Check for overflow/underflow
 Negative numbers
-///////////
-Interval
+## Interval
 Corner Cases
 Single interval
 Non-overlapping intervals
 An interval totally consumed within another interval
 Duplicate intervals
-//////////////
-Linked list
+## Linked list
 Corner Cases
 Single node
 Two nodes
 Linked list has cycle. Clarify with the interviewer whether there can be a cycle in the list. Usually the answer is no.
-//////////////
-Math
+## Math
 Corner Cases
 Division by 0
 Integer overflow and underflow
 ///////////
-Matrix
+## Matrix
 Corner Cases
 Empty matrix. Check that none of the arrays are 0 length.
 1 x 1 matrix.
 Matrix with only one row or column.
-//////////
-Tree
+## Tree
 Corner Cases
 Empty tree
 Single node
