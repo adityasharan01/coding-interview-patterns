@@ -71,3 +71,21 @@ lass Solution{
         arr2[m1]=b[l++];
     }
 };
+
+//Approach 2:
+class MergeSort
+{
+    // Function to merge the two sorted arrays
+    // arr1[], arr2[]: two input arrays
+    // n, m: size of arr1[] and arr2[] respectively
+    public static void merge(int arr1[], int arr2[], int n, int m) 
+    {
+       // add your code here 
+       int a[]=new int[m+n];
+       for(int i=0;i<m;i++) a[i]=arr2[i];
+       for(int i=0;i<n;i++) a[m+i]=arr1[i];
+       Arrays.sort(a);
+       for(int i=0;i<n;i++) arr1[i]=a[i];
+       for(int i=0;i<m;i++) arr2[i]=a[i+n];
+    }
+}
