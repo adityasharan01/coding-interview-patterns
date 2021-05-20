@@ -13,6 +13,21 @@ class Solution {
     }
 
 //HashMap Implementation 
+public int solve(int[] nums) {
+        Map<Integer, Integer> hm = new HashMap<>();
+        int max = 0;
+        for (int num : nums) {
+            if (hm.containsKey(num)) {
+                int curr = hm.get(num) + 1;
+                hm.put(num, curr);
+                max = Math.max(max, curr);
+            } else {
+                hm.put(num, 1);
+                max = Math.max(max, 1);
+            }
+        }
+        return max;
+
 HashMap<String,Integer> hm = new HashMap<>();
     for(String s2:s1){
         if(hm.containsKey(s2))
@@ -27,3 +42,5 @@ if (!wordCounts.containsKey(word))
 wordCounts.put(word, 1);
 else
 wordCounts.put(word, wordCounts.get(word) + 1);
+
+
