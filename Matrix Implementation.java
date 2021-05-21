@@ -6,6 +6,10 @@ n, m ≤ 250 where n and m are the number of rows and columns in matrix
 
 import java.util.*;
 
+
+
+//Declaration of Matrix 
+int[][] myarr={{1,2,3},{4,5,6},{7,8,9}}
 class Solution {
     public int[][] solve(int[][] matrix) {
         if (matrix.length == 0 || matrix[0].length == 0) {
