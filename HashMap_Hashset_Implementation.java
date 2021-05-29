@@ -42,5 +42,12 @@ if (!wordCounts.containsKey(word))
 wordCounts.put(word, 1);
 else
 wordCounts.put(word, wordCounts.get(word) + 1);
+    
+ //Looping in Hashmap
+    for(Character key:hm.keySet()){
+        if(hm.get(key)> mf){
+            mf=key;
+        }
+    }
 
 
