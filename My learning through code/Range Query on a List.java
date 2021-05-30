@@ -1,23 +1,38 @@
-Range Query on a List
-Implement a data structure with the following methods:
+Intuition
+Here we are asked to print the sum of the elements in an array a nums from index i to j (exclusive).
 
-RangeSum(int[] nums) constructs a new instance with the given nums.
-total(int i, int j) returns the sum of integers from nums between [i, j). That is, nums[i] + nums[i + 1] + ... + nums[j - 1].
-Constraints
+So, we see here that instead of calculating the sum from index i to j every time which takes \mathcal{O}(n)O(n) we create another array call prefix which stores the sum from index 0 to index i (exclusive) every time.
 
-n ≤ 100,000 where n is the length of nums
-k ≤ 100,000 where k is the number of calls to total
-Example 1
-Input
-methods = ["constructor", "total", "total"]
-arguments = [[[1, 2, 5, 0, 3, 7]], [0, 3], [1, 5]]`
-Output
-[null, 8, 10]
-Explanation
-r = RangeSum([1,2,5,0,3,7])
-r.total(0, 3) == 8 # sum([1, 2, 5])
-r.total(1, 5) == 10 # sum([2, 5, 0, 3])
-                                             
+From this prefix array we can just return answer for the function total as prefix[j] - prefix[i];
+
+Implementation
+I have implemented Prefix Sums concept inorder to reduce the time complexity from \mathcal{O}(nq)O(nq) to \mathcal{O}(q)O(q).
+
+Example #1
+For example, let's consider nums = [ 1, 4, 9, 3, 2 ]
+and we need to calculate the total from 1 to 3.
+
+Our prefix sum array will be prefix = [ 0, 1, 5, 14, 17, 19 ].
+Note: prefix array's length is 1 more than actual length of nums i.e n+1.
+
+Code:
+
+public int total(int i, int j) {
+        return prefix[j] - prefix[i];
+}
+now for total(1,3) we return prefix[3] - prefix[1]
+ie.  14 - 1 = 13.
+
+even by summing up elements from index 1 to 3 (exclusive) we get 13 i.e a[1] + a[2] = 4 + 9.
+
+Time Complexity
+As total() function is \mathcal{O}(1)O(1).
+
+for q queries, the Time Complexity is \mathcal{O}(q)O(q).
+
+Space Complexity
+As we have used an additional array which is of length n+1, The Space Complexity of code is \mathcal{O}(n)O(n) .
+
 import java.util.*;
 
 class RangeSum {
@@ -35,5 +50,3 @@ class RangeSum {
         return prefix[j] - prefix[i];
     }
 }
-                                                                   
-                                                                   
