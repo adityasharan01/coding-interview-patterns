@@ -67,3 +67,27 @@ Collections.sort(people, new Comparator<Person>() {
         return Integer.signum(lhs.getId() - rhs.getId());  
     }
 });
+/////////////////////////////////////////////////////////
+3
+
+Two corrections:
+
+You have to make an ArrayList of People objects:
+
+ArrayList<People> preps = new ArrayList<People>(); 
+After adding the objects to the preps, use:
+
+Collections.sort(preps, new CompareId());
+Also, add a CompareId class as:
+
+class CompareId implements Comparator {  
+    public int compare(Object obj1, Object obj2) {  
+        People t1 = (People)obj1;  
+        People t2 = (People)obj2;  
+
+        if (t1.marks > t2.marks)  
+            return 1;   
+        else  
+            return -1;
+    }  
+}
