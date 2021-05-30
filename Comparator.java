@@ -41,3 +41,29 @@ class Person {
         return String.format("{name=%s, age=%d}", name, age);
     }
 }
+
+Here's a super short template to do the sorting right away :
+
+Collections.sort(people,new Comparator<Person>(){
+   @Override
+   public int compare(final Person lhs,Person rhs) {
+     //TODO return 1 if rhs should be before lhs 
+     //     return -1 if lhs should be before rhs
+     //     return 0 otherwise (meaning the order stays the same)
+     }
+ });
+if it's hard to remember, try to just remember that it's similar (in terms of the sign of the number) to:
+
+ lhs-rhs 
+That's in case you want to sort in ascending order : from smallest number to largest number.
+     
+ 20
+
+For the sake of completeness, here's a simple one-liner compare method:
+
+Collections.sort(people, new Comparator<Person>() {
+    @Override
+    public int compare(Person lhs, Person rhs) {  
+        return Integer.signum(lhs.getId() - rhs.getId());  
+    }
+});
