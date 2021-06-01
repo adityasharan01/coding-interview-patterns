@@ -61,13 +61,13 @@ import java.util.*;
 
 class Solution {
     public String solve(String s0, String s1) {
-        StringBuilder str = new StringBuilder("");
+        StringBuilder str = new StringBuilder("");  //observe this
 
         int i = 0;
 
         while (i < s0.length() && i < s1.length()) {
             str.append(s0.charAt(i));
-            str.append(s1.charAt(i++));
+            str.append(s1.charAt(i++));  //observe this
         }
 
         if (i >= s0.length())
@@ -75,6 +75,6 @@ class Solution {
         else
             str.append(s0.substring(i));
 
-        return str.toString();
+        return str.toString();      //observe this
     }
 }
