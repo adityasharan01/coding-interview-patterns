@@ -10,50 +10,33 @@ Output : 3
 Input : a = 43, b = -8
 Output :  -5 
 
-import java.io.*;
- 
-class GFG
-{
-     
-    // Function to divide a by b and
-    // return floor value it
-    static int divide(int dividend, int divisor)
-    {
-         
-        // Calculate sign of divisor i.e.,
-        // sign will be negative only iff
-        // either one of them is negative
-        // otherwise it will be positive
-        int sign = ((dividend < 0) ^
-                   (divisor < 0)) ? -1 : 1;
-     
-        // Update both divisor and
-        // dividend positive
-        dividend = Math.abs(dividend);
-        divisor = Math.abs(divisor);
-     
-        // Initialize the quotient
-        int quotient = 0;
-         
-        while (dividend >= divisor)
-        {
-            dividend -= divisor;
-            ++quotient;
-        }
-     
-        return sign * quotient;
-    }   
-     
-    public static void main (String[] args)
-    {
-        int a = 10;
-        int b = 3;
-         
-        System.out.println(divide(a, b));
-         
-        a = 43;
-        b = -8;
-         
-        System.out.println(divide(a, b));
+What if we have to solve this problem for longs, not for ints, in a language that doesn't support anything larger than long, say, Java or C#? Then we no longer have an option to use longs to avoid overflow, no pun intended. I was fiddling around with corner cases until I came up with a pretty ugly solution that worked, but then I found this one. The idea of using negative integers had crossed my mind, but I didn't think it could lead to less ugly code until I saw that solution. So I took up the idea, and did this:
+
+public int divide(int dividend, int divisor) {
+    if (divisor == 0 || (dividend == Integer.MIN_VALUE && divisor == -1))
+        return Integer.MAX_VALUE;
+    if (dividend == 0 || divisor == 1) // necessary for MIN_VALUE / 1
+        return dividend;
+    // use negative numbers to avoid overflow, original idea by @brubru777
+    if (dividend > 0)
+        return -divide(-dividend, divisor);
+    if (divisor > 0)
+        return -divide(dividend, -divisor);
+    int shiftedDivisor = divisor;
+    int shift = 0;
+    while ((shiftedDivisor << 1) < 0) {
+        ++shift;
+        shiftedDivisor <<= 1;
     }
+    int quotient = 0;
+    int remainder = dividend;
+    while (shift >= 0) {
+        if (remainder <= shiftedDivisor) {
+            quotient |= 1 << shift;
+            remainder -= shiftedDivisor;
+        }
+        shiftedDivisor >>= 1;
+        --shift;
+    }
+    return quotient;
 }
