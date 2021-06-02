@@ -344,3 +344,10 @@ class Main
         }
     }
 }
+
+Output:
+ 
+The front element is A
+The front element is C
+The queue size is 2
+The queue is not empty
