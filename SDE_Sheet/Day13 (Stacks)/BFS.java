@@ -1,62 +1,81 @@
  Using BFS (Breadth–First Search)
-We can iteratively traverse the given directory, and print all files present within it and its sub-directories using Breadth–first search. Following is the complete algorithm:
 
-Create an empty queue of File class and enqueue the root directory.
-Loop till queue becomes empty (all files and directories present inside the root directory are processed)
-Pop front File from the queue.
-If the popped File is a directory, get the list of all files and directories present in it, add each directory to the queue and print every file.
-
-import java.io.File;
-import java.util.ArrayDeque;
-import java.util.Queue;
- 
-class Main
-{
-    // Iterative function to traverse a given directory in Java using BFS
-    public static void listFilesIteratively(File root)
-    {
-        // maintain a queue to store files and directories
-        Queue<File> queue = new ArrayDeque<>();
- 
-        // add root directory to the queue
-        queue.add(root);
- 
-        // loop till the queue is empty. i.e., all files and directories present
-        // inside the root directory are processed
-        while (!queue.isEmpty())
-        {
-            // get the next file/directory from the queue
-            File current = queue.poll();
- 
-            // get the list of all files and directories in `current`
-            File[] listOfFilesAndDirectory = current.listFiles();
- 
-            // `listFiles()` returns non-null array if `current` denotes a directory
-            if (listOfFilesAndDirectory != null)
-            {
-                // iterate over the list of the files and directories in
-                // the current directory
-                for (File file: listOfFilesAndDirectory)
-                {
-                    // if the current file is a directory
-                    if (file.isDirectory()) {
-                        queue.add(file);
-                    }
-                    // otherwise, print it
-                    else {
-                        System.out.println(file);
-                    }
-                }
-            }
+class CheckBFS {
+    public static String bfs(Graph g){
+        
+        String result = "";
+        //Checking if the graph has no vertices
+        if (g.vertices < 1){
+            return result;
         }
+
+        //Boolean Array to hold the history of visited nodes (by default-false)
+        boolean[] visited = new boolean[g.vertices];
+    
+        for(int i=0;i<g.vertices;i++) 
+        { 
+            //Checking whether the node is visited or not 
+            if(!visited[i]) 
+            { 
+                result = result + bfsVisit(g, i, visited); 
+            } 
+        }
+        return result;
     }
- 
-    public static void main(String[] args)
-    {
-        // root directory
-        String dir = "/var/www/html";
-        File rootDir = new File(dir);
- 
-        listFilesIteratively(rootDir);
+    public static String bfsVisit(Graph g, int source, boolean[] visited) {
+        
+        String result = "";
+
+        //Create Queue for Breadth First Traversal and enqueue source in it
+        Queue<Integer> queue = new Queue<>(g.vertices);
+
+        queue.enqueue(source);
+        visited[source] = true;
+
+        //Traverse while queue is not empty
+        while (!queue.isEmpty()) {
+
+            //Dequeue a vertex/node from queue and add it to result
+            int current_node = queue.dequeue();
+
+            result += String.valueOf(current_node);
+
+            //Get adjacent vertices to the current_node from the array,
+            //and if they are not already visited then enqueue them in the Queue
+            DoublyLinkedList<Integer>.Node temp = null;
+            if(g.adjacencyList[current_node] != null)
+                temp = g.adjacencyList[current_node].headNode;
+
+            while (temp != null) {
+
+                if (!visited[temp.data]) {
+                    queue.enqueue(temp.data);
+                    visited[temp.data] = true; //Visit the current Node
+                }
+                temp = temp.nextNode;
+            }
+        }//end of while
+        return result;
     }
+    public static void main(String args[]) {
+        Graph g = new Graph(5);
+        g.addEdge(0,1);
+        g.addEdge(0,2);
+        g.addEdge(1,3);
+        g.addEdge(1,4);
+        System.out.println("Graph1:");
+        g.printGraph();
+        System.out.println("BFS traversal of Graph1 : " + bfs(g));
+        System.out.println();
+
+        Graph g2 = new Graph(5);
+        g2.addEdge(0,1);
+        g2.addEdge(0,4);
+        g2.addEdge(1,2);
+        g2.addEdge(3,4);
+        System.out.println("Graph2:");
+        g2.printGraph();
+        System.out.println("BFS traversal of Graph2 : " + bfs(g2));
+  }
 }
+ 
