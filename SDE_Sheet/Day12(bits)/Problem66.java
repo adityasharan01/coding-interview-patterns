@@ -15,7 +15,32 @@ Input : n = 32
 Output : Yes
 25 = 32
   
-  
+  //count of set bit should be one 
+  import java.io.*;
+ 
+class countSetBits {
+    /* Function to get no of set
+    bits in binary representation
+    of positive integer n */
+    static int countSetBits(int n)
+    {
+        int count = 0;
+        while (n > 0) {
+            count += n & 1;
+            n >>= 1;
+        }
+        return count;
+    }
+ 
+    // driver program
+    public static void main(String args[])
+    {
+        int i = 9;
+        System.out.println(countSetBits(i));
+    }
+}
+
+//////////////////////
 class GFG
 {
 /* Function to check if x is power of 2*/
