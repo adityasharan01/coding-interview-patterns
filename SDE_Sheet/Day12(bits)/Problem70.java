@@ -34,7 +34,8 @@ class Main
 }
 
 //Method 2: Repeatedly adding a given number to the result
-The idea is to repeatedly add a given number to result n times.
+For n = 5, 52 = (5 + 5 + 5 + 5 + 5) = 25
+  The idea is to repeatedly add a given number to result n times.
   
   class Main
 {
@@ -59,7 +60,3 @@ The idea is to repeatedly add a given number to result n times.
     }
 }
 
-
-
-  
-For n = 5, 52 = (5 + 5 + 5 + 5 + 5) = 25
