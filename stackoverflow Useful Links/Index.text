@@ -1,0 +1,17 @@
+Avoiding NullPointerException in Java
+ :https://stackoverflow.com/questions/271526/avoiding-nullpointerexception-in-java?rq=1
+ 
+ Scanner vs. BufferedReader:
+ https://stackoverflow.com/questions/2231369/scanner-vs-bufferedreader?noredirect=1&lq=1
+ 
+ How can I create a memory leak in Java?:
+https://stackoverflow.com/questions/6470651/how-can-i-create-a-memory-leak-in-java?rq=1
+
+Convert InputStream to byte array in Java:
+https://stackoverflow.com/questions/1264709/convert-inputstream-to-byte-array-in-java?rq=1
+
+How do I convert a String to an InputStream in Java?:
+https://stackoverflow.com/questions/782178/how-do-i-convert-a-string-to-an-inputstream-in-java?rq=1
+
+How do I generate random integers within a specific range in Java?:
+https://stackoverflow.com/questions/363681/how-do-i-generate-random-integers-within-a-specific-range-in-java?rq=1
