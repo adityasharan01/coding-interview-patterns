@@ -50,3 +50,29 @@ class Solution {
         return res;
     }
 }
+using bigint 
+Intuition
+Using Big - Integer to solve the String - Addition.
+
+Implementation
+Create Big Integer for both the strings.
+return the big integer with string type.
+
+Time Complexity
+\mathcal{O}(n)O(n) -> Addition operation provided by the Big - Integer.
+
+Space Complexity
+\mathcal{O}(n)O(n) -> Storing the String in Big - Integer.
+
+import java.math.*;
+import java.util.*;
+class Solution {
+    public String solve(String a, String b) {
+        BigInteger b1 = new BigInteger(a);
+        BigInteger b2 = new BigInteger(b);
+
+        b1 = b1.add(b2);
+
+        return b1.toString();
+    }
+}
