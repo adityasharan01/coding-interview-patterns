@@ -35,69 +35,12 @@ Constraints:
 1 <= startTime.length == endTime.length == profit.length <= 5 * 104
 1 <= startTime[i] < endTime[i] <= 109
 1 <= profit[i] <= 104
-  
-  Hints:
+    Hints:
   Think on DP.
   Sort the elements by starting time, then define the dp[i] as the maximum profit taking elements from the suffix starting at i.
   Use binarySearch (lower_bound/upper_bound on C++) to get the next index for the DP transition.
-    
-    
-    
-    ////////////////////////////////////////////////////////////////////////ANOTHER SOLUTION /////////////////////////////////////////////////////
-    
-    class Job{
-
-int start;
-int end;
-int profit;
-Job(int start,int end,int profit){
-    this.start = start;
-    this.end = end;
-    this.profit = profit;
-}
-}
-class Solution {
-
-public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
-    int n=profit.length;
-    List<Job> jobs=new ArrayList<>();
-    for(int i=0;i<n;i++)
-        jobs.add(new Job(startTime[i],endTime[i],profit[i]));
-    jobs.sort(Comparator.comparingInt(o->o.start));
-    int[] dp=new int[n];
-    Arrays.fill(dp,-1);
-    return maxProfit(jobs,dp,0);
-}
-int maxProfit(List<Job> jobs,int[] dp,int index){
-    int n=jobs.size();
-    if(index==n || index==-1)
-        return 0;
-    if(dp[index] != -1)
-        return dp[index];
-    int maxProfit=0;
-    int selectJobProfit = jobs.get(index).profit + maxProfit(jobs,dp,nextIndex(jobs,index+1,jobs.get(index).end));
-    int skipJobProfit=maxProfit(jobs,dp,index+1);
-    maxProfit=Math.max(selectJobProfit,skipJobProfit);
-    dp[index]=maxProfit;
-    return maxProfit;
-}
-int nextIndex(List<Job> jobs,int start,int target){
-    int high=jobs.size()-1;
-    int result=-1;
-    while(start<=high){
-        int mid=start+(high-start)/2;
-        if(jobs.get(mid).start<target)
-            start=mid+1;
-        else{
-            result=mid;
-            high=mid-1;
-        }
-    }
-    return result;
-}
-}
-
-DP
+ ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	  DP
 
 class Solution {
     public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
@@ -210,4 +153,60 @@ class Solution {
     }
 }
 Always worry about that i can't come up with a DP solution. So practice every question with DFS if I can 
+      
+    ////////////////////////////////////////////////////////////////////////ANOTHER SOLUTION /////////////////////////////////////////////////////
+    
+    class Job{
+
+int start;
+int end;
+int profit;
+Job(int start,int end,int profit){
+    this.start = start;
+    this.end = end;
+    this.profit = profit;
+}
+}
+class Solution {
+
+public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
+    int n=profit.length;
+    List<Job> jobs=new ArrayList<>();
+    for(int i=0;i<n;i++)
+        jobs.add(new Job(startTime[i],endTime[i],profit[i]));
+    jobs.sort(Comparator.comparingInt(o->o.start));
+    int[] dp=new int[n];
+    Arrays.fill(dp,-1);
+    return maxProfit(jobs,dp,0);
+}
+int maxProfit(List<Job> jobs,int[] dp,int index){
+    int n=jobs.size();
+    if(index==n || index==-1)
+        return 0;
+    if(dp[index] != -1)
+        return dp[index];
+    int maxProfit=0;
+    int selectJobProfit = jobs.get(index).profit + maxProfit(jobs,dp,nextIndex(jobs,index+1,jobs.get(index).end));
+    int skipJobProfit=maxProfit(jobs,dp,index+1);
+    maxProfit=Math.max(selectJobProfit,skipJobProfit);
+    dp[index]=maxProfit;
+    return maxProfit;
+}
+int nextIndex(List<Job> jobs,int start,int target){
+    int high=jobs.size()-1;
+    int result=-1;
+    while(start<=high){
+        int mid=start+(high-start)/2;
+        if(jobs.get(mid).start<target)
+            start=mid+1;
+        else{
+            result=mid;
+            high=mid-1;
+        }
+    }
+    return result;
+}
+}
+
+
  
