@@ -60,3 +60,37 @@ class Solution {
         return dp[weights.length - 1][capacity];
     }
 }
+///////////////////////////////////////////////////////////////////////////////////
+                                                                                                                                                      
+Intuition
+This is clearly a dynamic programming problem, and it is indeed a pretty famous one. We first set up our DP array, which will store the maximum value that can be attained at each weight no greater than the capacity (set DP[0] = 0). Then, for each weight, we iterate from the back of the DP array.
+
+Here, I will illustrate why we must iterate from the back. Suppose a simple example, namely weights = {2}, values = {3}, and capacity = 5. Then, our original DP array will look like | 0 | -1 | -1 | -1 | -1 | -1 |.
+
+If we iterate from the front, then our program will do the following: First update the first element => | 0 | -1 | 3 | -1 | -1 | -1 |. Then, while iterating, we see this updated element for a second time, and it will become | 0 | -1 | 3 | -1 | 6 | -1 |. This process will continue on, and we notice that this is not what we are looking for, for we have considered adding the weight 2 multiple times, and will thus result in the wrong answer. Remark: This algorithm is more useful in another DP problem, Infinite Knapsack
+
+Now, If we iterate from the back, we will only encounter the first element once and update it to | 0 | -1 | 3 | -1 | -1 | -1 |. As we cannot move forward, this will be the only, and in fact the desired, update.
+
+The time complexity of this solution is around O(NC), where N is the number of weights and C is the capacity. The memory complexity of the solution in O(C).
+
+import java.util.*;
+
+class Solution {
+    public int solve(int[] weights, int[] values, int c) {
+        int[] dp = new int[300];
+        Arrays.fill(dp, -1);
+        dp[0] = 0;
+
+        for (int i = 0; i < weights.length; i++) {
+            for (int j = c; j >= 0; j--) {
+                if (dp[j] == -1 || j + weights[i] > c)
+                    continue;
+
+                dp[j + weights[i]] = Math.max(dp[j + weights[i]], dp[j] + values[i]);
+            }
+        }
+        int res = 0;
+        for (int i = 0; i <= c; i++) res = Math.max(res, dp[i]);
+        return res;
+    }
+}                                                                                                                                                    
