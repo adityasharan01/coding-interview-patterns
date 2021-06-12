@@ -1,4 +1,5 @@
-Given a source vertex s from a set of vertices V in a weighted graph where all its edge weights w(u,v) are non-negative, find the shortest path weights d(s,v) from source s for all vertices v present in the graph.
+Given a source vertex s from a set of vertices V in a weighted graph where all its edge weights w(u,v) are non-negative,
+find the shortest path weights d(s,v) from source s for all vertices v present in the graph.
 //Prepfortech.in
   
 For example,
@@ -213,4 +214,4 @@ class Main
 }
  
 
-Dijkstra’s algorithm runs inO(E.log(V)) time like Prim’s algorithm. Here, E is the total number of edges, and V is
+Dijkstra’s algorithm runs inO(E.log(V)) time like Prim’s algorithm. Here, E is the total number of edges, and V is the graph’s number of vertices.
