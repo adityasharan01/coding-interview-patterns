@@ -1,3 +1,35 @@
+ public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
+        int[][] jobs = new int[startTime.length][3];
+        for (int i = 0; i<startTime.length; i++) {
+            jobs[i][0] = startTime[i];
+            jobs[i][1] = endTime[i];
+            jobs[i][2] = profit[i];
+        }
+		//sort by end time 
+     
+     1.) //Observe this
+        Arrays.sort(jobs, new Comparator<int[]>() {
+            public int compare (int[] a, int[] b) {
+                return a[1] - b[1];
+            }
+        });
+     
+     2.) //observe the comparator implementation givenbelow :
+     public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
+    int n=profit.length;
+    List<Job> jobs=new ArrayList<>();
+    for(int i=0;i<n;i++)
+        jobs.add(new Job(startTime[i],endTime[i],profit[i]));
+    jobs.sort(Comparator.comparingInt(o->o.start));
+         
+      3.)//observe the comparator implementation 
+           Arrays.sort(jobs, new jobComparator());
+           class jobComparator implements Comparator<int[]> {
+        public int compare(int[] a, int[] b) {
+            return a[1] - b[1];
+        }
+    }
+   4.)// observe the below one for arrow function comparator in java 
 public class ComparatorDemo {
 
     public static void main(String[] args) {
