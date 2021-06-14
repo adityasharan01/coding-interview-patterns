@@ -61,7 +61,7 @@ class Solution {
             result[i][1]=arr.get(1);
             i++;
         }
-       Arrays.sort(result, new Comparator<int[]>() {
+       Arrays.sort(result, new Comparator<int[]>() {        // can write new Comparator<>() {
         public int compare(int[] o1, int[] o2) {
             if((float)o1[0]/o1[1] < (float)o2[0]/o2[1]){
                 return -1;
