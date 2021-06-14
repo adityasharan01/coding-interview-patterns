@@ -21,6 +21,8 @@ Explanation
 Which adds up to 6.
   
 Hint:Try to add distance to strings from where your current position is. And update your current position.
+    
+Manhattan distance is = |x0-x1|+|y0-y1|;
 
 //My method 
   
