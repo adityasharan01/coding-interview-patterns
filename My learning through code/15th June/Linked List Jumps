@@ -1,0 +1,70 @@
+You are given a singly linked list node containing positive integers. Return the same linked list where every node's next points to the node val nodes ahead. If there's no such node, next should point to null.
+
+Constraints
+
+n ≤ 100,000 where n is the number of nodes in node
+Example 1
+Input
+Visualize
+node =
+2
+
+1
+
+4
+
+1
+
+Output
+Visualize
+2
+
+4
+
+Explanation
+Note that 2's next is 2 node ahead. 4's next is out of bounds, so it's set to null.
+
+Intuition
+Use two pointers, one to point to the node in question, and one as a temp to "skip" node.val places in the linked list. We then iterate ahead for the temp pointer for the current node val steps. Then we assign that to the next node for the current node we're at. We repeat this until node is null, aka we reach the end of the list.
+
+Implementation
+=> Set up two additional points one for the head, and one as a temp to skip ahead
+=> Keep iterating as long as the node is not null. Set the amount of steps/jumps to take as node.val and start the temp node at the current place.
+=> Iterate temp by that many steps, and assign it to the next node of the current node.
+=> Assign the current node as the temp node and keep iterating until we reach the end of the list.
+
+Time Complexity
+\mathcal{O}(n)O(n) Iterating over n nodes in the linked list.
+
+Space Complexity
+\mathcal{O}(1)O(1) We don't need more than 2 additional pointers regardless of the size the linked list.
+
+import java.util.*;
+
+/**
+ * class LLNode {
+ *   int val;
+ *   LLNode next;
+ * }
+ */
+class Solution {
+    public LLNode solve(LLNode node) {
+        LLNode temp;
+        LLNode head = node;
+        int count;
+
+        while(node != null)
+        {
+            count = node.val;
+            temp = node;
+            while (count> 0 && temp != null) 
+            {
+                temp = temp.next;
+                count--;
+            }
+            node.next = temp;
+            node = temp;
+        }
+        return head;
+    }
+}
