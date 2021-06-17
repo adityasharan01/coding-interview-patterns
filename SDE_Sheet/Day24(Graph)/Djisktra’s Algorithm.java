@@ -1,4 +1,5 @@
-Given a source vertex s from a set of vertices V in a weighted graph where all its edge weights w(u,v) are non-negative,
+Given a source vertex s from a set of vertices V in a weighted graph
+where all its edge weights w(u,v) are non-negative,
 find the shortest path weights d(s,v) from source s for all vertices v present in the graph.
 //Prepfortech.in
   
