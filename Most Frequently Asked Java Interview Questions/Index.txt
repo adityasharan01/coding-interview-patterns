@@ -1,3 +1,5 @@
+
+JAVA Interview Questions
 Difference between static and non-static methods, variables And explain their memory architecture as well?
 What do you understand by using of final keyword with classes and variables as well, give the case where you will prefer to use the final keyword?
 What is typecasting? Suppose there is a data which is of type double then how can you show that double in int data type?
