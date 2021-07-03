@@ -4,7 +4,12 @@ Q:
 
 
 37
-I was trying to read a file into an array by using FileInputStream, and an ~800KB file took about 3 seconds to read into memory. I then tried the same code except with the FileInputStream wrapped into a BufferedInputStream and it took about 76 milliseconds. Why is reading a file byte by byte done so much faster with a BufferedInputStream even though I'm still reading it byte by byte? Here's the code (the rest of the code is entirely irrelevant). Note that this is the "fast" code. You can just remove the BufferedInputStream if you want the "slow" code:
+I was trying to read a file into an array by using FileInputStream, 
+and an ~800KB file took about 3 seconds to read into memory. 
+I then tried the same code except with the FileInputStream wrapped into a BufferedInputStream and 
+it took about 76 milliseconds. Why is reading a file byte by byte done so much faster with a BufferedInputStream even though 
+I'm still reading it byte by byte? Here's the code (the rest of the code is entirely irrelevant). 
+Note that this is the "fast" code. You can just remove the BufferedInputStream if you want the "slow" code:
 
 InputStream is = null;
 
