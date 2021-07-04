@@ -21,6 +21,7 @@ public class Solution {
                     if (isValid(currPos.x + dx[i], currPos.y + dy[i], N, M) && isVisited[currPos.x + dx[i]][currPos.y + dy[i]] == false) {
                         queue.add(new Coordinate(currPos.x + dx[i], currPos.y + dy[i]));
                         isVisited[currPos.x + dx[i]][currPos.y + dy[i]] = true;
+                        
                     }
                 }                
             }
