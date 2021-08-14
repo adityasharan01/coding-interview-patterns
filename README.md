@@ -166,4 +166,5 @@ Very skewed tree (like a linked list)
    runtime of a sort,time space complexity)
 8. Recursion
 9. custom data structures (object oriented programming)
+
 10.Binary search
