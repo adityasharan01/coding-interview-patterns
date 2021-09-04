@@ -2,7 +2,8 @@ Write a function that takes an unsigned integer and returns the number of '1' bi
 
 Note:
 
-Note that in some languages, such as Java, there is no unsigned integer type. In this case, the input will be given as a signed integer type. It should not affect your implementation, as the integer's internal binary representation is the same, whether it is signed or unsigned.
+Note that in some languages, such as Java, there is no unsigned integer type. In this case, the input will be given as a signed integer type. 
+ It should not affect your implementation, as the integer's internal binary representation is the same, whether it is signed or unsigned.
 In Java, the compiler represents the signed integers using 2's complement notation. Therefore, in Example 3, the input represents the signed integer. -3.
  
 
@@ -104,7 +105,8 @@ Given a number, swap ith and jth bit
 0 1 1 0 0 1 1 0
 
 # swap 2nd and 5th bits (from right)
-Note: If the bits are different, only then we have to swap them. Else, no need. So, we need to first get those bits. And check for equality. If they are not same, only then swap them. And, what do we mean by swap. We just need to flip their value. To swap, we need to create a mask.
+Note: If the bits are different, only then we have to swap them. Else, no need. So, we need to first get those bits. And check for equality. 
+If they are not same, only then swap them. And, what do we mean by swap. We just need to flip their value. To swap, we need to create a mask.
 
 # num
 i = 2;
