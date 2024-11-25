@@ -166,5 +166,174 @@ Very skewed tree (like a linked list)
    runtime of a sort,time space complexity)
 8. Recursion
 9. custom data structures (object oriented programming)
-
 10.Binary search
+
+###########################
+# Leetcode Solutions
+
+The repository is full of solutions to questions hosted on [Leetcode](https://www.leetcode.com/), along with data structures in Python, so that one can easily understand how all data structures work and build up.
+
+---
+
+### **Disclaimer**
+
+It is **NOT** advisable to directly copy and paste the solution to make them work for you. Instead, I recommend you:
+
+1. First, try to find the right, efficient, and optimized solution by yourself.
+2. If, after several attempts, you're unable to solve it, feel free to refer to this repository.
+
+---
+
+### **Key Questions to Consider**
+
+- **Input Constraints**  
+  - How big is the size of the input?  
+  - What is the range of values?  
+  - Are there negative numbers, floating points, or empty inputs?  
+  - Are duplicates present?  
+  - What are the extreme cases?  
+
+- **Input Format**  
+  - How is the input stored?  
+  - Is it a list of strings or a trie (for dictionaries of words)?  
+
+---
+
+### **General Tips**
+
+- Always validate input first. Check for invalid, empty, or unexpected inputs. Clarify with the interviewer if you can assume valid input.
+- Consider time and space complexity constraints.
+- Be cautious of **off-by-one errors**.
+- Check type consistency in languages without automatic type coercion.
+- After finishing, test your solution with a few example inputs.
+- If the algorithm runs multiple times (e.g., on a web server), preprocess input to improve efficiency.
+
+---
+
+### **Programming Paradigms**
+
+- Write **pure functions** as often as possible.
+- Avoid mutating parameters passed into your function.
+- Avoid using **global variables** unless absolutely necessary.
+
+> **Balance Accuracy and Efficiency**:  
+Functional programming is memory-intensive due to non-mutation, while imperative code is faster due to in-place operations.
+
+---
+
+### **Contact**
+
+You can reach out and say thanks for compiling this for you at:  
+📧 [Contact Me](mailto:ranjan.aditya2009@gmail.com)  
+🌐 [My Website](https://adityasharan.netlify.app/)  
+
+![Coder at Work](https://cloud.githubusercontent.com/assets/4745789/21447248/0884e3b8-c8f8-11e6-8ce3-74ff6502cbca.gif)
+
+---
+
+## **Thinking Patterns for Algorithmic Problems**
+
+### **Constraints → Time Complexity**
+
+| **N (Size)** | **Time Complexity** |
+|--------------|---------------------|
+| N ≤ 10^18    | O(log N) or O(1)    |
+| N ≤ 10^7     | O(N)                |
+| N ≤ 10^5     | O(N) or O(N log N)  |
+| N ≤ 10^4     | O(N log N) or O(N²) |
+| N ≤ 10^3     | O(N²)               |
+| N ≤ 10^2     | O(N³)               |
+| N ≤ 20       | O(2ⁿ)               |
+
+---
+
+### **Key Observations**
+
+1. Increase **space complexity** for better **time complexity** using precomputation.
+2. To understand recursion, first understand **mathematical induction**.
+3. If ordering is unnecessary, consider sorting.
+4. For problems finding or maximizing "x," use **binary search**.
+5. Use a **deque** for efficient insertion/deletion from both sides.
+6. Problems with **O(1)** complexity often involve linked lists (e.g., LRU cache) or two pointers.
+7. Use specific tree traversal based on requirements:
+   - Post-order: Process children first.
+   - Pre-order: Process parent first.
+   - Level-order: Process level-wise.
+   - In-order (BST): Traverse in sorted order.
+
+---
+
+### **Reverse Thinking**
+
+Instead of always traversing **left to right**, consider reverse traversal for arrays and trees. For binary trees, traverse the **right subtree first**.
+
+---
+
+## **Algorithms by Problem Type**
+
+| **Problem Type**              | **Algorithm**          |
+|--------------------------------|------------------------|
+| Input array is sorted          | Binary search, 2-pointers |
+| Permutations/subsets           | Backtracking           |
+| Trees                          | DFS, BFS               |
+| Graphs                         | DFS, BFS               |
+| Linked List                    | Two pointers           |
+| Recursion not allowed          | Stack                 |
+| Must solve in-place            | Swap, reuse pointers   |
+| Maximum/minimum subarray       | Dynamic programming    |
+| Top/Least K items              | Heap                  |
+| Common strings                 | Map, Trie             |
+
+---
+
+## **Corner Cases by Data Type**
+
+### **Arrays**
+- Empty sequence  
+- Sequence with 1 or 2 elements  
+- Sequence with repeated elements  
+
+### **Strings**
+- Empty string  
+- Single-character string  
+- Strings with one distinct character  
+
+### **Binary**
+- Check for overflow/underflow  
+- Negative numbers  
+
+### **Intervals**
+- Single interval  
+- Non-overlapping intervals  
+- Intervals consumed within another  
+
+### **Linked List**
+- Single node  
+- Two nodes  
+- Cycle in the list  
+
+### **Matrix**
+- Empty matrix  
+- 1x1 matrix  
+- Matrix with one row/column  
+
+### **Tree**
+- Empty tree  
+- Single node  
+- Very skewed tree  
+
+---
+
+## **Top 10 Algorithmic Coding Questions**
+
+1. **DFS**  
+2. **BFS**  
+3. Matching Parentheses  
+4. Using Hash Tables  
+5. Pointer Manipulation  
+6. Reverse Linked List  
+7. Sorting Fundamentals  
+8. Recursion  
+9. Custom Data Structures  
+10. Binary Search  
+
